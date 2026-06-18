@@ -1,575 +1,297 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description"
-    content="Portfólio minimalista de desenvolvedor de software, construído com Bootstrap 5.3." />
-  <title>Marcus Vinicius | Portfólio</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    crossorigin="anonymous" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
-  <style>
-    :root {
-      --bg: #f5f3ef;
-      --surface: rgba(255, 255, 255, 0.72);
-      --surface-strong: rgba(255, 255, 255, 0.92);
-      --text: #141414;
-      --muted: #5f5a52;
-      --line: rgba(20, 20, 20, 0.1);
-      --accent: #184e45;
-      --accent-soft: rgba(24, 78, 69, 0.1);
-    }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resume | Marcus Vinícius - Spacedevs</title>
 
-    html {
-      scroll-behavior: smooth;
-    }
+  <script src="https://cdn.tailwindcss.com"></script>
 
-    body {
-      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(circle at top left, rgba(24, 78, 69, 0.08), transparent 28%),
-        radial-gradient(circle at right 10%, rgba(0, 0, 0, 0.05), transparent 22%),
-        linear-gradient(180deg, #faf8f4 0%, var(--bg) 100%);
-    }
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600&family=Outfit:wght@300;400;600;800&family=Dancing+Script:wght@400;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/app.css">
 
-    .page-shell {
-      position: relative;
-      min-height: 100vh;
-      overflow: hidden;
-    }
+  <meta name="description" content="Resume profissional de Marcus Vinícius, fundador da Spacedevs.">
 
-    .orb {
-      position: absolute;
-      border-radius: 999px;
-      filter: blur(8px);
-      pointer-events: none;
-      opacity: 0.65;
-    }
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="manifest" href="site.webmanifest">
 
-    .orb.one {
-      width: 18rem;
-      height: 18rem;
-      top: -6rem;
-      left: -5rem;
-      background: rgba(24, 78, 69, 0.14);
-    }
-
-    .orb.two {
-      width: 14rem;
-      height: 14rem;
-      right: -4rem;
-      top: 16rem;
-      background: rgba(20, 20, 20, 0.07);
-    }
-
-    .navbar-blur,
-    .glass-card {
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-      background: var(--surface);
-      border: 1px solid var(--line);
-    }
-
-    .navbar-blur {
-      border-radius: 999px;
-    }
-
-    .brand-mark {
-      width: 0.8rem;
-      height: 0.8rem;
-      border-radius: 999px;
-      background: var(--accent);
-      box-shadow: 0 0 0 0.4rem var(--accent-soft);
-    }
-
-    .eyebrow {
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      font-size: 0.74rem;
-      color: var(--muted);
-    }
-
-    .hero-title {
-      font-size: clamp(3rem, 9vw, 6.25rem);
-      line-height: 0.95;
-      letter-spacing: -0.07em;
-    }
-
-    .hero-copy {
-      max-width: 40rem;
-      color: var(--muted);
-      font-size: 1.05rem;
-    }
-
-    .metric {
-      border-top: 1px solid var(--line);
-      padding-top: 1rem;
-    }
-
-    .metric strong {
-      display: block;
-      font-size: 1.4rem;
-      letter-spacing: -0.04em;
-    }
-
-    .metric span {
-      color: var(--muted);
-      font-size: 0.9rem;
-    }
-
-    .section-title {
-      letter-spacing: -0.05em;
-      font-size: clamp(1.6rem, 4vw, 2.5rem);
-    }
-
-    .text-soft {
-      color: var(--muted);
-    }
-
-    .tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      padding: 0.5rem 0.8rem;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.7);
-      border: 1px solid var(--line);
-      color: var(--text);
-      font-size: 0.9rem;
-    }
-
-    .tag-dot {
-      width: 0.45rem;
-      height: 0.45rem;
-      border-radius: 999px;
-      background: var(--accent);
-    }
-
-    .project-card,
-    .info-card {
-      border: 1px solid var(--line);
-      background: var(--surface-strong);
-      border-radius: 1.5rem;
-      transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
-    }
-
-    .project-card:hover,
-    .info-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 1.2rem 2.5rem rgba(20, 20, 20, 0.08);
-      border-color: rgba(24, 78, 69, 0.22);
-    }
-
-    .project-kicker {
-      font-size: 0.78rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--accent);
-    }
-
-    .project-link {
-      color: var(--text);
-      text-decoration: none;
-    }
-
-    .project-link:hover {
-      color: var(--accent);
-    }
-
-    .pill {
-      display: inline-flex;
-      align-items: center;
-      padding: 0.45rem 0.75rem;
-      border-radius: 999px;
-      background: rgba(24, 78, 69, 0.08);
-      color: var(--accent);
-      font-size: 0.85rem;
-      margin: 0.2rem 0.35rem 0 0;
-    }
-
-    .btn-accent {
-      --bs-btn-color: #fff;
-      --bs-btn-bg: var(--accent);
-      --bs-btn-border-color: var(--accent);
-      --bs-btn-hover-bg: #123a34;
-      --bs-btn-hover-border-color: #123a34;
-      --bs-btn-border-radius: 999px;
-      --bs-btn-padding-x: 1.15rem;
-      --bs-btn-padding-y: 0.8rem;
-    }
-
-    .btn-ghost {
-      --bs-btn-color: var(--text);
-      --bs-btn-bg: transparent;
-      --bs-btn-border-color: var(--line);
-      --bs-btn-hover-bg: rgba(255, 255, 255, 0.7);
-      --bs-btn-hover-border-color: rgba(24, 78, 69, 0.2);
-      --bs-btn-border-radius: 999px;
-      --bs-btn-padding-x: 1.15rem;
-      --bs-btn-padding-y: 0.8rem;
-    }
-
-    .section-block {
-      padding-top: 5rem;
-      padding-bottom: 5rem;
-    }
-
-    .divider {
-      height: 1px;
-      background: var(--line);
-    }
-
-    .timeline-item+.timeline-item {
-      margin-top: 1rem;
-      padding-top: 1rem;
-      border-top: 1px solid var(--line);
-    }
-
-    .footer-note {
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-
-    .profile-image {
-      width: 8rem;
-      height: 8rem;
-      border-radius: 999px;
-      background: linear-gradient(135deg, rgba(24, 78, 69, 0.15), rgba(24, 78, 69, 0.05));
-      border: 2px solid var(--line);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 3.5rem;
-      color: var(--accent);
-      object-fit: cover;
-    }
-
-    .social-links {
-      display: flex;
-      gap: 0.8rem;
-      flex-wrap: wrap;
-    }
-
-    .social-link {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 2.8rem;
-      height: 2.8rem;
-      border-radius: 999px;
-      background: rgba(24, 78, 69, 0.08);
-      border: 1px solid var(--line);
-      color: var(--accent);
-      text-decoration: none;
-      transition: all 180ms ease;
-    }
-
-    .social-link:hover {
-      background: var(--accent);
-      color: #fff;
-      transform: translateY(-2px);
-      box-shadow: 0 0.6rem 1.5rem rgba(24, 78, 69, 0.15);
-    }
-
-    .social-link i {
-      font-size: 1.1rem;
-    }
-
-    .project-github-link {
-      position: absolute;
-      top: 1.5rem;
-      right: 1.5rem;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 2.4rem;
-      height: 2.4rem;
-      border-radius: 999px;
-      background: rgba(24, 78, 69, 0.08);
-      border: 1px solid var(--line);
-      color: var(--accent);
-      text-decoration: none;
-      transition: all 180ms ease;
-    }
-
-    .project-github-link:hover {
-      background: var(--accent);
-      color: #fff;
-      transform: translateY(-2px);
-      box-shadow: 0 0.6rem 1.5rem rgba(24, 78, 69, 0.15);
-    }
-
-    .project-github-link i {
-      font-size: 1rem;
-    }
-
-    .project-card {
-      position: relative;
-    }
-
-    @media (max-width: 991.98px) {
-      .navbar-blur {
-        border-radius: 1.2rem;
-      }
-    }
-  </style>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script defer src="/assets/js/config.js"></script>
+  <script defer src="/assets/js/app.js"></script>
 </head>
 
-<body>
-  <div class="page-shell">
-    <div class="orb one"></div>
-    <div class="orb two"></div>
-
-    <header class="container py-4 position-relative">
-      <nav class="navbar navbar-expand-lg navbar-blur px-3 px-lg-4 py-3 shadow-sm">
-        <a class="navbar-brand d-flex align-items-center gap-2 fw-semibold text-dark" href="#top">
-          <span class="brand-mark"></span>
-          Marcus Vinicius
-        </a>
-        <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse"
-          data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Alternar navegação">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-end" id="menu">
-          <ul class="navbar-nav gap-lg-2 align-items-lg-center mt-3 mt-lg-0">
-            <li class="nav-item"><a class="nav-link text-dark" href="#sobre">Sobre</a></li>
-            <li class="nav-item"><a class="nav-link text-dark" href="#projetos">Projetos</a></li>
-            <li class="nav-item"><a class="nav-link text-dark" href="#trajetoria">Trajetória</a></li>
-            <li class="nav-item"><a class="nav-link text-dark" href="#contato">Contato</a></li>
-          </ul>
-        </div>
-      </nav>
-    </header>
-
-    <main id="top" class="container position-relative">
-      <section class="section-block pt-4 pt-lg-5">
-        <div class="row align-items-end g-5">
-          <div class="col-lg-8">
-            <p class="eyebrow mb-3">Portfólio de desenvolvedor de software</p>
-            <h1 class="hero-title fw-bold mb-4">
-              Interfaces simples,
-              <span class="d-block">produtos claros e código limpo.</span>
-            </h1>
-            <p class="hero-copy mb-4">
-              Desenvolvedor focado em experiências web minimalistas, arquitetura enxuta e entrega consistente.
-              Gosto de transformar requisitos complexos em páginas leves, elegantes e fáceis de manter.
-            </p>
-            <div class="d-flex flex-wrap gap-3">
-              <a class="btn btn-accent" href="#projetos">Ver projetos</a>
-              <a class="btn btn-ghost" href="#contato">Entrar em contato</a>
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <div class="glass-card rounded-5 p-4 p-lg-4 shadow-sm">
-              <p class="eyebrow mb-3">Resumo</p>
-              <div class="d-grid gap-3">
-                <div class="metric">
-                  <strong>5+ anos</strong>
-                  <span>construindo produtos digitais</span>
-                </div>
-                <div class="metric">
-                  <strong>Front-end</strong>
-                  <span>interfaces responsivas com foco em UX</span>
-                </div>
-                <div class="metric">
-                  <strong>Stack</strong>
-                  <span>HTML, CSS, JavaScript, React e Bootstrap</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="sobre" class="section-block">
-        <div class="row g-4 align-items-start">
-          <div class="col-lg-4">
-            <p class="eyebrow mb-3">Sobre</p>
-            <h2 class="section-title fw-bold mb-3">Minimalismo com intenção.</h2>
-          </div>
-          <div class="col-lg-8">
-            <div class="glass-card rounded-5 p-4 p-lg-5 shadow-sm">
-              <div class="row g-4">
-                <div class="col-md-6">
-                  <p class="text-soft mb-0">
-                    Trabalho melhor em interfaces que priorizam hierarquia visual, poucas distrações e interação direta.
-                    Meu foco é criar páginas que pareçam leves, mas que ainda transmitam personalidade e confiança.
-                  </p>
-                </div>
-                <div class="col-md-6">
-                  <p class="text-soft mb-0">
-                    Tenho experiência com projetos institucionais, landing pages, sistemas internos e componentes
-                    reutilizáveis.
-                    Também valorizo acessibilidade, performance e manutenção simples ao longo do tempo.
-                  </p>
-                </div>
-              </div>
-              <div class="mt-4">
-                <span class="tag"><span class="tag-dot"></span> Design systems</span>
-                <span class="tag"><span class="tag-dot"></span> Componentização</span>
-                <span class="tag"><span class="tag-dot"></span> Acessibilidade</span>
-                <span class="tag"><span class="tag-dot"></span> Performance</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="projetos" class="section-block">
-        <div class="d-flex flex-wrap justify-content-between align-items-end gap-3 mb-4">
-          <div>
-            <p class="eyebrow mb-3">Projetos</p>
-            <h2 class="section-title fw-bold mb-0">Trabalhos selecionados.</h2>
-          </div>
-          <p class="text-soft mb-0" style="max-width: 34rem;">
-            Uma seleção curta de entregas que combinam clareza visual, organização e foco em conversão.
-          </p>
-        </div>
-
-        <div class="row g-4">
-          <div class="col-lg-6">
-            <article class="project-card h-100 p-4 p-lg-5">
-              <a class="project-github-link" href="https://github.com" target="_blank" rel="noreferrer"
-                title="Ver no GitHub">
-                <i class="bi bi-github"></i>
-              </a>
-              <p class="project-kicker mb-2">01 / Landing page</p>
-              <h3 class="h4 fw-semibold mb-3">Produto SaaS para captação de leads</h3>
-              <p class="text-soft mb-4">
-                Estrutura enxuta com blocos de valor, prova social e CTA evidente, pensada para conversão sem poluição
-                visual.
-              </p>
-              <div class="mb-4">
-                <span class="pill">Bootstrap 5.3</span>
-                <span class="pill">HTML semântico</span>
-                <span class="pill">Responsivo</span>
-              </div>
-              <a class="project-link fw-semibold" href="#contato">Quero algo assim</a>
-            </article>
-          </div>
-          <div class="col-lg-6">
-            <article class="project-card h-100 p-4 p-lg-5">
-              <a class="project-github-link" href="https://github.com" target="_blank" rel="noreferrer"
-                title="Ver no GitHub">
-                <i class="bi bi-github"></i>
-              </a>
-              <p class="project-kicker mb-2">02 / Dashboard</p>
-              <h3 class="h4 fw-semibold mb-3">Painel administrativo para operação interna</h3>
-              <p class="text-soft mb-4">
-                Navegação objetiva, estados claros e densidade de informação controlada para acelerar decisões e reduzir
-                atrito.
-              </p>
-              <div class="mb-4">
-                <span class="pill">Componentes reutilizáveis</span>
-                <span class="pill">UI acessível</span>
-                <span class="pill">Design system</span>
-              </div>
-              <a class="project-link fw-semibold" href="#contato">Vamos conversar</a>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section id="trajetoria" class="section-block">
-        <div class="row g-4 align-items-start">
-          <div class="col-lg-4">
-            <p class="eyebrow mb-3">Trajetória</p>
-            <h2 class="section-title fw-bold mb-3">Experiência organizada em poucas linhas.</h2>
-          </div>
-          <div class="col-lg-8">
-            <div class="glass-card rounded-5 p-4 p-lg-5 shadow-sm">
-              <div class="timeline-item">
-                <div class="d-flex justify-content-between gap-3 flex-wrap">
-                  <strong>Desenvolvedor Front-end</strong>
-                  <span class="text-soft">2023 — atual</span>
-                </div>
-                <p class="text-soft mb-0 mt-2">
-                  Liderança de interface em produtos web, construção de sistemas de componentes e colaboração próxima
-                  com design e produto.
-                </p>
-              </div>
-              <div class="timeline-item">
-                <div class="d-flex justify-content-between gap-3 flex-wrap">
-                  <strong>Desenvolvedor Web</strong>
-                  <span class="text-soft">2020 — 2023</span>
-                </div>
-                <p class="text-soft mb-0 mt-2">
-                  Implementação de páginas institucionais, manutenção de aplicações e melhorias focadas em performance e
-                  usabilidade.
-                </p>
-              </div>
-              <div class="timeline-item">
-                <div class="d-flex justify-content-between gap-3 flex-wrap">
-                  <strong>Base técnica</strong>
-                  <span class="text-soft">Antes de 2020</span>
-                </div>
-                <p class="text-soft mb-0 mt-2">
-                  Formação contínua em engenharia de software, arquitetura front-end e boas práticas de entrega.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="contato" class="section-block pb-5">
-        <div class="glass-card rounded-5 p-4 p-lg-5 shadow-sm">
-          <div class="row align-items-center g-4">
-            <div class="col-lg-auto text-center text-lg-start">
-              <div class="profile-image mb-3 mx-auto mx-lg-0">👨‍💻</div>
-              <div class="social-links justify-content-center justify-content-lg-start">
-                <a class="social-link" href="https://wa.me/5511999999999" target="_blank" rel="noreferrer"
-                  title="WhatsApp">
-                  <i class="bi bi-whatsapp"></i>
-                </a>
-                <a class="social-link" href="https://linkedin.com/in/marcusvinicius" target="_blank" rel="noreferrer"
-                  title="LinkedIn">
-                  <i class="bi bi-linkedin"></i>
-                </a>
-                <a class="social-link" href="https://youtube.com/@marcusvinicius" target="_blank" rel="noreferrer"
-                  title="YouTube">
-                  <i class="bi bi-youtube"></i>
-                </a>
-                <a class="social-link" href="mailto:ola@marcusvinicius.dev" title="E-mail">
-                  <i class="bi bi-envelope"></i>
-                </a>
-              </div>
-            </div>
-            <div class="col-lg">
-              <p class="eyebrow mb-3">Contato</p>
-              <h2 class="section-title fw-bold mb-3">Aberto para freelas, vagas e parcerias.</h2>
-              <p class="text-soft mb-4">
-                Se você procura alguém para transformar uma ideia em uma interface limpa e funcional, podemos começar
-                por uma conversa objetiva.
-              </p>
-              <div class="d-flex flex-column flex-sm-row gap-2">
-                <a class="btn btn-accent" href="mailto:ola@marcusvinicius.dev">ola@marcusvinicius.dev</a>
-                <a class="btn btn-ghost" href="https://wa.me/5511999999999" target="_blank" rel="noreferrer">Enviar
-                  mensagem</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer class="container pb-4">
-      <div class="divider mb-4"></div>
-      <div class="d-flex flex-column flex-md-row justify-content-between gap-2 footer-note">
-        <span>Marcus Vinicius • Portfólio minimalista com Bootstrap 5.3</span>
-        <span>Feito para destacar conteúdo, não distrações.</span>
+<body class="text-gray-200 antialiased overflow-x-hidden selection:bg-brand-purple selection:text-white">
+  <header id="main-header" class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent py-6">
+    <div class="container mx-auto px-6 flex justify-between items-center">
+      <div class="flex items-center gap-2">
       </div>
-    </footer>
-  </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    crossorigin="anonymous"></script>
+      <div class="flex items-center gap-3">
+        <a href="mailto:contato@marcusvinicius.dev.br"
+          class="bg-brand-purple hover:bg-brand-dark text-white px-5 py-2.5 rounded-xl font-bold text-sm tracking-wide transition-all shadow-[0px_4px_0px_0px_rgba(76,29,149,1)] hover:translate-y-[2px] hover:shadow-[0px_2px_0px_0px_rgba(76,29,149,1)]">
+          Fale comigo
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-28 md:pt-36">
+    <section class="relative pb-16 md:pb-24 overflow-hidden">
+      <div class="absolute -top-24 right-0 w-[420px] h-[420px] bg-brand-purple/15 blur-[120px] rounded-full"></div>
+      <div class="absolute top-40 left-0 w-[320px] h-[320px] bg-brand-light/10 blur-[120px] rounded-full"></div>
+
+      <div class="container mx-auto px-6 relative z-10">
+        <div class="grid md:grid-cols-5 gap-8 items-center">
+          <div class="md:col-span-2">
+            <div class="relative max-w-sm mx-auto md:mx-0">
+              <div
+                class="absolute -inset-3 rounded-[2rem] bg-gradient-to-br from-brand-purple/40 to-brand-light/20 blur-xl">
+              </div>
+              <img src="assets/images/avatars/marcusvinicius.png" alt="Marcus Vinícius"
+                class="relative rounded-[2rem] border border-white/10 w-full h-[420px] object-cover" />
+            </div>
+          </div>
+
+          <div id="perfil" class="md:col-span-3 space-y-6">
+            <p class="text-brand-light uppercase tracking-[0.25em] text-xs font-bold">Currículo</p>
+            <h1 class="text-4xl md:text-6xl font-display font-bold text-white leading-tight">Marcus
+              Vinícius Pereira De Almeida
+            </h1>
+            <!-- <h1 class="text-4xl md:text-6xl font-display font-bold text-white leading-tight">Marcus
+              <span class="text-brand-purple">Vinícius</span>
+            </h1> -->
+            <p class="text-xl text-gray-300">Analista de Engenharia de Software e criador da <span
+                class="text-brand-purple">Spacedevs</span></p>
+            <p class="text-gray-400 max-w-2xl leading-relaxed">Profissional com foco em desenvolvimento de
+              software, educação em tecnologia e construção de produtos digitais com impacto social.
+              Experiência em ecossistema web moderno, colaboração com comunidades <strong class="text-brand-purple">open
+                source</strong> e
+              liderança de
+              iniciativas de formação para jovens talentos.</p>
+
+            <div class="grid sm:grid-cols-3 gap-4 pt-2">
+              <div class="bg-brand-surface border border-white/5 rounded-2xl p-4">
+                <p class="text-gray-500 text-xs uppercase tracking-wider mb-2">Local</p>
+                <p class="font-semibold text-white">Salvador, Bahia</p>
+              </div>
+              <div class="bg-brand-surface border border-white/5 rounded-2xl p-4">
+                <p class="text-gray-500 text-xs uppercase tracking-wider mb-2">Idioma</p>
+                <p class="font-semibold text-white">Português (nativo)</p>
+              </div>
+              <div class="bg-brand-surface border border-white/5 rounded-2xl p-4">
+                <p class="text-gray-500 text-xs uppercase tracking-wider mb-2">Foco</p>
+                <p class="font-semibold text-white">Web, Educação e OSS</p>
+              </div>
+            </div>
+
+            <div class="flex flex-wrap gap-3 pt-2">
+              <a href="https://www.linkedin.com/in/marcuxyz/" target="_blank"
+                class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#16161F] border border-white/10 hover:border-brand-purple/50 transition-colors text-sm font-semibold">
+                <svg viewBox="0 0 24 24" aria-hidden="true" class="w-4 h-4 fill-white">
+                  <path
+                    d="M4.98 3.5C4.98 4.88 3.87 6 2.49 6S0 4.88 0 3.5 1.11 1 2.49 1s2.49 1.12 2.49 2.5ZM.5 8h4V23h-4V8Zm6.5 0h3.84v2.05h.05c.53-1.01 1.84-2.05 3.79-2.05 4.05 0 4.8 2.67 4.8 6.14V23h-4v-7.86c0-1.88-.03-4.29-2.61-4.29-2.62 0-3.02 2.04-3.02 4.16V23H7V8Z" />
+                </svg> LinkedIn
+              </a>
+              <a href="https://www.github.com/marcuxyz/" target="_blank"
+                class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#16161F] border border-white/10 hover:border-brand-purple/50 transition-colors text-sm font-semibold">
+                <svg viewBox="0 0 24 24" aria-hidden="true" class="w-4 h-4 fill-white">
+                  <path
+                    d="M12 .5C5.65.5.5 5.66.5 12.02c0 5.09 3.29 9.4 7.86 10.93.58.11.79-.25.79-.56 0-.28-.01-1.19-.02-2.15-3.2.7-3.88-1.36-3.88-1.36-.52-1.34-1.28-1.69-1.28-1.69-1.05-.72.08-.71.08-.71 1.16.08 1.77 1.2 1.77 1.2 1.03 1.78 2.71 1.26 3.37.96.1-.75.4-1.26.72-1.55-2.55-.29-5.23-1.29-5.23-5.73 0-1.27.45-2.3 1.19-3.11-.12-.29-.52-1.47.11-3.06 0 0 .97-.31 3.19 1.19a10.9 10.9 0 0 1 5.8 0c2.22-1.5 3.19-1.19 3.19-1.19.63 1.59.23 2.77.11 3.06.74.81 1.19 1.84 1.19 3.11 0 4.45-2.69 5.44-5.25 5.72.41.36.78 1.08.78 2.19 0 1.58-.01 2.85-.01 3.24 0 .31.21.68.8.56a11.52 11.52 0 0 0 7.84-10.93C23.5 5.66 18.35.5 12 .5Z" />
+                </svg>
+
+                GitHub
+              </a>
+              <a href="mailto:oi@marcuspereira.dev.br"
+                class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#16161F] border border-white/10 hover:border-brand-purple/50 transition-colors text-sm font-semibold">
+                <i data-lucide="mail" class="w-4 h-4"></i> E-mail
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="py-16 bg-[#0B0B0F]">
+      <div class="container mx-auto px-6">
+        <div class="mb-10">
+          <p class="text-brand-light uppercase tracking-[0.2em] text-xs font-bold mb-2">Competências</p>
+          <h2 class="text-3xl md:text-4xl font-display font-bold text-white">Skills técnicas e de Liderança</h2>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+          <article class="bg-[#13131A] border border-white/5 rounded-3xl p-6">
+            <div class="w-11 h-11 bg-brand-purple/20 rounded-xl flex items-center justify-center text-brand-light mb-4">
+              <i data-lucide="code-2" class="w-5 h-5"></i>
+            </div>
+            <h3 class="text-xl font-display font-bold text-white mb-3">Desenvolvimento</h3>
+            <ul class="space-y-2 text-sm text-gray-300">
+              <li>Ruby, Python e JavaScript</li>
+              <li>Vue.js, HTML5, CSS3 e Tailwind</li>
+              <li>Arquitetura de software para web</li>
+              <li>Boas práticas de versionamento com Git</li>
+            </ul>
+          </article>
+
+          <article class="bg-[#13131A] border border-white/5 rounded-3xl p-6">
+            <div class="w-11 h-11 bg-brand-purple/20 rounded-xl flex items-center justify-center text-brand-light mb-4">
+              <i data-lucide="graduation-cap" class="w-5 h-5"></i>
+            </div>
+            <h3 class="text-xl font-display font-bold text-white mb-3">Educação e Mentoria</h3>
+            <ul class="space-y-2 text-sm text-gray-300">
+              <li>Planejamento de trilhas de aprendizado</li>
+              <li>Mentoria técnica para iniciantes</li>
+              <li>Didática orientada a projetos práticos</li>
+              <li>Criação de conteúdo para comunidade</li>
+            </ul>
+          </article>
+
+          <article class="bg-[#13131A] border border-white/5 rounded-3xl p-6">
+            <div class="w-11 h-11 bg-brand-purple/20 rounded-xl flex items-center justify-center text-brand-light mb-4">
+              <i data-lucide="users" class="w-5 h-5"></i>
+            </div>
+            <h3 class="text-xl font-display font-bold text-white mb-3">Gestão e Comunidade</h3>
+            <ul class="space-y-2 text-sm text-gray-300">
+              <li>Liderança de iniciativas educacionais</li>
+              <li>Articulação com escolas e parceiros</li>
+              <li>Construção de comunidade open source</li>
+              <li>Comunicação e colaboração multidisciplinar</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="trabalhos" class="py-16">
+      <div class="container mx-auto px-6">
+        <div class="mb-10">
+          <p class="text-brand-light uppercase tracking-[0.2em] text-xs font-bold mb-2">Portfolio</p>
+          <h2 class="text-3xl md:text-4xl font-display font-bold text-white">Trabalhos Realizados</h2>
+        </div>
+
+        <div class="space-y-6">
+          <article
+            class="bg-[#13131A] border border-white/5 rounded-3xl p-6 md:p-8 flex flex-col md:flex-row gap-6 md:gap-8 md:items-center">
+            <div class="md:w-1/4">
+              <p class="text-xs uppercase tracking-widest text-brand-light mb-2">Experiencia Profissional</p>
+              <h3 class="text-2xl font-display font-bold text-white">Repassa LTDA (Lojas Renner)</h3>
+            </div>
+            <div class="md:w-2/4 text-gray-300 leading-relaxed">
+              Atuacao como Analista de Engenharia de Software no Grupo Renner, contribuindo com evolução de
+              sistemas, manutenção de qualidade de código e colaboração em times de produto para entrega
+              contínua de valor.
+            </div>
+            <div class="md:w-1/4 flex md:justify-end">
+              <span class="inline-flex items-center gap-2 text-sm font-bold text-gray-400">
+                Cargo atual <i data-lucide="briefcase" class="w-4 h-4"></i>
+              </span>
+            </div>
+          </article>
+
+          <article
+            class="bg-[#13131A] border border-white/5 rounded-3xl p-6 md:p-8 flex flex-col md:flex-row gap-6 md:gap-8 md:items-center">
+            <div class="md:w-1/4">
+              <p class="text-xs uppercase tracking-widest text-brand-light mb-2">Projeto Autoral</p>
+              <h3 class="text-2xl font-display font-bold text-white">Spacedevs</h3>
+            </div>
+            <div class="md:w-2/4 text-gray-300 leading-relaxed">
+              Plataforma e comunidade focada em inclusão social por meio da tecnologia. Estruturação de
+              trilhas de ensino, mentoria para jovens de escolas públicas e desenvolvimento de projetos
+              práticos com foco em empregabilidade.
+            </div>
+            <div class="md:w-1/4 flex md:justify-end">
+              <a href="https://github.com/spacdevs/" target="_blank"
+                class="inline-flex items-center gap-2 text-sm font-bold text-white hover:text-brand-light transition-colors">
+                Ver projeto <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+              </a>
+            </div>
+          </article>
+
+          <article
+            class="bg-[#13131A] border border-white/5 rounded-3xl p-6 md:p-8 flex flex-col md:flex-row gap-6 md:gap-8 md:items-center">
+            <div class="md:w-1/4">
+              <p class="text-xs uppercase tracking-widest text-brand-light mb-2">Open Source</p>
+              <h3 class="text-2xl font-display font-bold text-white">Contribuições Públicas</h3>
+            </div>
+            <div class="md:w-2/4 text-gray-300 leading-relaxed">
+              Participação ativa em projetos open source com compartilhamento de conhecimento técnico,
+              organização de repositórios e incentivo à colaboração entre desenvolvedores iniciantes e
+              experientes.
+            </div>
+            <div class="md:w-1/4 flex md:justify-end">
+              <a href="https://www.github.com/marcuxyz/" target="_blank"
+                class="inline-flex items-center gap-2 text-sm font-bold text-white hover:text-brand-light transition-colors">
+                Ver perfil <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 bg-[#0B0B0F]">
+      <div class="container mx-auto px-6">
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="bg-[#13131A] border border-white/5 rounded-3xl p-8">
+            <h3 class="text-2xl font-display font-bold text-white mb-4">Educação Continuada</h3>
+            <p class="text-gray-300 leading-relaxed">Atualização constante em engenharia de software,
+              arquitetura web e práticas modernas de desenvolvimento, com foco em excelência técnica e impacto
+              social.</p>
+          </div>
+          <div class="bg-[#13131A] border border-white/5 rounded-3xl p-8">
+            <h3 class="text-2xl font-display font-bold text-white mb-4">Objetivo Profissional</h3>
+            <p class="text-gray-300 leading-relaxed">Contribuir para a construção de produtos digitais
+              escaláveis e para a formação de novos talentos na tecnologia, unindo performance técnica,
+              colaboração e propósito.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contato" class="relative bg-brand-purple pt-16 pb-10 text-white overflow-hidden">
+    <div class="container mx-auto px-6 relative z-10">
+      <div class="text-center">
+        <p class="text-brand-light font-bold tracking-widest text-xs uppercase mb-4">Contato</p>
+        <h2 class="text-3xl md:text-5xl font-display font-bold mb-6">Conhece alguam escola pública e gostaria de
+          colaborar levando ensino de programação para ela? Acesse:</h2>
+        <a href="https://www.spacedevs.com.br" class="inline-block group">
+          <div
+            class="text-3xl md:text-5xl lg:text-6xl font-bold text-white opacity-90 group-hover:opacity-100 transition-opacity break-all md:break-normal">
+            www.spacedevs.com.br
+          </div>
+          <div class="h-1 bg-white/30 w-full mt-2 group-hover:bg-white transition-colors"></div>
+        </a>
+
+        <div class="mt-10 flex justify-center gap-4">
+          <a href="https://www.linkedin.com/in/marcuxyz/" target="_blank"
+            class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 transition-colors text-sm font-semibold">
+            <svg viewBox="0 0 24 24" aria-hidden="true" class="w-4 h-4 fill-white">
+              <path
+                d="M4.98 3.5C4.98 4.88 3.87 6 2.49 6S0 4.88 0 3.5 1.11 1 2.49 1s2.49 1.12 2.49 2.5ZM.5 8h4V23h-4V8Zm6.5 0h3.84v2.05h.05c.53-1.01 1.84-2.05 3.79-2.05 4.05 0 4.8 2.67 4.8 6.14V23h-4v-7.86c0-1.88-.03-4.29-2.61-4.29-2.62 0-3.02 2.04-3.02 4.16V23H7V8Z" />
+            </svg> LinkedIn
+          </a>
+          <a href="https://www.github.com/marcuxyz/" target="_blank"
+            class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 transition-colors text-sm font-semibold">
+            <svg viewBox="0 0 24 24" aria-hidden="true" class="w-4 h-4 fill-white">
+              <path
+                d="M12 .5C5.65.5.5 5.66.5 12.02c0 5.09 3.29 9.4 7.86 10.93.58.11.79-.25.79-.56 0-.28-.01-1.19-.02-2.15-3.2.7-3.88-1.36-3.88-1.36-.52-1.34-1.28-1.69-1.28-1.69-1.05-.72.08-.71.08-.71 1.16.08 1.77 1.2 1.77 1.2 1.03 1.78 2.71 1.26 3.37.96.1-.75.4-1.26.72-1.55-2.55-.29-5.23-1.29-5.23-5.73 0-1.27.45-2.3 1.19-3.11-.12-.29-.52-1.47.11-3.06 0 0 .97-.31 3.19 1.19a10.9 10.9 0 0 1 5.8 0c2.22-1.5 3.19-1.19 3.19-1.19.63 1.59.23 2.77.11 3.06.74.81 1.19 1.84 1.19 3.11 0 4.45-2.69 5.44-5.25 5.72.41.36.78 1.08.78 2.19 0 1.58-.01 2.85-.01 3.24 0 .31.21.68.8.56a11.52 11.52 0 0 0 7.84-10.93C23.5 5.66 18.35.5 12 .5Z" />
+            </svg> GitHub
+          </a>
+        </div>
+      </div>
+
+      <div class="mt-12 text-center text-xs opacity-70">
+        <p>Resume de Marcus Vinícius | Spacedevs</p>
+      </div>
+    </div>
+  </footer>
 </body>
 
 </html>
